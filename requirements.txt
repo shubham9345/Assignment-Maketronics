@@ -19,9 +19,3 @@ wsproto==1.2.0
 xdg==5
 xkit==0.0.0
 zipp==1.0.0
-Flask==2.x.x
-Flask-Cors==3.x.x
-gunicorn==20.x.x
-requests==2.x.x
-serverless-wsgi==x.x.x    # if you added it
-vercel-wsgi==x.x.x        # if you added it
