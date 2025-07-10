@@ -9,7 +9,6 @@ A web application that fetches trending books using the **Google Books API**, in
 - 🧠 Uses **Google Books API** to fetch book data with price information.
 - 🔎 **Search** functionality: `/api/books/search?q=...&max_results=...`.
 - 💲 **Price filtering**: `min_price` and `max_price` query parameters to narrow results by price.
-- 🔄 **Refresh** endpoint: `/api/books/refresh` clears cache and fetches fresh data.
 - 📦 Well-structured Flask application with modular code.
 - 💅 Responsive frontend built with HTML, CSS, and JavaScript.
 
@@ -27,8 +26,7 @@ smart-books-display/
 │   └── index.html         # Frontend UI
 ├── static/
 │   └── styles.css         # Frontend styles
-└── tests/
-    └── test_fetcher.py    # (Optional) Unit tests for fetch_books
+
 ```
 
 ---
@@ -37,8 +35,8 @@ smart-books-display/
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/smart-books-display.git
-cd smart-books-display
+git clone https://github.com/your-username/smart-books-display.git](https://github.com/shubham9345/Assignment-Maketronics
+cd Assignment-Maketronics
 ```
 
 ### 2. (Optional) Create & activate a virtual environment
@@ -80,16 +78,6 @@ Search and filter books.
   ```
   GET /api/books/search?q=python&min_price=10&max_price=50
   ```
-
-### `POST /api/books/refresh`
-Clears the in-memory cache and fetches fresh book data.
-
-- **Returns**:
-  - `status`: "refreshed"
-  - `count`: Number of books fetched after refresh.
-
----
-
 ## 🛠️ Technologies Used
 
 - **Python 3**
@@ -102,7 +90,6 @@ Clears the in-memory cache and fetches fresh book data.
 
 ## 📸 Frontend Screenshots
 
-> (Add screenshots of the home page, search form with price filters, and a JSON response example)
 
 ---
 
@@ -122,4 +109,4 @@ MIT License
 ---
 
 ## 👤 Author
-**Your Name** – [GitHub](https://github.com/your-username)
+**Shubham Kumar** – [GitHub](https://github.com/your-username)
