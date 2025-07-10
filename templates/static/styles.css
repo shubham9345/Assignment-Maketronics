@@ -1,0 +1,75 @@
+/* static/styles.css */
+body {
+  font-family: Arial, sans-serif;
+  background: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 2rem;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  color: #343a40;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  justify-content: center;
+}
+
+input[type="text"],
+input[type="number"] {
+  flex: 1 1 200px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+#book-list {
+  list-style: none;
+  padding: 0;
+}
+
+#book-list li {
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+#book-list li h3 {
+  margin: 0 0 0.5rem;
+}
+
+#book-list li p {
+  margin: 0 0 0.5rem;
+}
+
+small {
+  color: #666;
+}

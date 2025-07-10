@@ -1,0 +1,75 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trending Books</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>📚 Trending Books</h1>
+
+    <form id="search-form">
+      <input type="text" id="query" placeholder="Search for books...">
+      <input type="number" id="min-price" placeholder="Min Price" step="0.01" min="0">
+      <input type="number" id="max-price" placeholder="Max Price" step="0.01" min="0">
+      <button type="submit">Search</button>
+    </form>
+
+    <ul id="book-list"></ul>
+  </div>
+
+  <script>
+    async function fetchBooks(query = "", minPrice = null, maxPrice = null) {
+      // Build query parameters
+      const params = [];
+      if (query) params.push(`q=${encodeURIComponent(query)}`);
+      if (minPrice !== null) params.push(`min_price=${minPrice}`);
+      if (maxPrice !== null) params.push(`max_price=${maxPrice}`);
+
+      // Determine endpoint
+      let url;
+      if (params.length > 0) {
+        url = `/api/books/search?${params.join('&')}`;
+      } else {
+        url = "/api/books";
+      }
+
+      const res = await fetch(url);
+      const data = await res.json();
+      const list = document.getElementById("book-list");
+      list.innerHTML = "";
+      if (!data || data.length === 0) {
+        list.innerHTML = "<li>No books found for given criteria.</li>";
+        return;
+      }
+      data.forEach(book => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <h3><a href="${book.link}" target="_blank">${book.title}</a></h3>
+          <p>${book.description}</p>
+          <small>Authors: ${book.authors.join(", ")} | Price: ${book.price_display} | Source: ${book.source}</small>
+        `;
+        list.appendChild(li);
+      });
+    }
+
+    document.getElementById("search-form").addEventListener("submit", e => {
+      e.preventDefault();
+      const query = document.getElementById("query").value.trim();
+      const minPriceVal = document.getElementById("min-price").value;
+      const maxPriceVal = document.getElementById("max-price").value;
+      fetchBooks(
+        query,
+        minPriceVal ? parseFloat(minPriceVal) : null,
+        maxPriceVal ? parseFloat(maxPriceVal) : null
+      );
+    });
+
+    // Initial load
+    fetchBooks();
+  </script>
+</body>
+</html>

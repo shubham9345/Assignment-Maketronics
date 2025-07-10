@@ -1,0 +1,6 @@
+# This file contains the dependencies for the project.
+# To install the dependencies, run:
+# pip install -r requirements.txt
+flask
+flask-cors
+requests
